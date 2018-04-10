@@ -56,11 +56,18 @@ body {
      text-decoration: none;
      cursor: pointer;
  }
- 
+
    /* #5 */
  .links-container .navbar-link:hover {
      color: rgb(233,50,117);
+
  }
+
+/* Assignment -- pseudo-class selector */
+
+.links-container .navbar-link:active {
+    background: white;
+}
 
 .container {
     margin: 0 auto;
