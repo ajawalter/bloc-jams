@@ -29,6 +29,22 @@
          { title: 'Wrong phone number', duration: '2:15'}
      ]
  };
+// Assignment
+
+ var albumNineties = {
+     title: 'Missing the Nineties',
+     artist: 'Various Artists',
+     label: 'Skee-Lo Records',
+     year: '2018',
+     albumArtUrl: 'assets/images/album_covers/06.png',
+     songs: [
+         { title: 'Hold On', duration: '4:32' },
+         { title: 'Everlong', duration: '5:01' },
+         { title: 'Under the Bridge', duration: '4:43'},
+         { title: 'Wonderwall', duration: '3:14' },
+         { title: 'Creep', duration: '5:01'}
+     ]
+ };
 
  var createSongRow = function(songNumber, songName, songLength) {
       var template =
@@ -41,14 +57,14 @@
 
       return template;
   };
+  var albumTitle = document.getElementsByClassName('album-view-title')[0];
+  var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+  var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+  var albumImage = document.getElementsByClassName('album-cover-art')[0];
+  var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
   var setCurrentAlbum = function(album) {
     // #1
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
-    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-    var albumImage = document.getElementsByClassName('album-cover-art')[0];
-    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
     // #2
     albumTitle.firstChild.nodeValue = album.title;
@@ -65,6 +81,17 @@
     }
 };
 
+
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+
+    var albumArray = [albumPicasso, albumMarconi, albumNineties];
+    var i = 1;
+    albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albumArray[i]);
+        i++;
+        if (i == albumArray.length) {
+            i = 0;
+        }
+    });
 };
