@@ -176,13 +176,13 @@ var updatePlayerBarSong = function () {
 
 };
 
-var togglePlayFromPlayerbar = function() {
+var togglePlayFromPlayerBar = function() {
     var $currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
     if (currentSoundFile.isPaused()) {
         $currentlyPlayingCell.html(pauseButtonTemplate);
         $(this).html(playerBarPauseButton);
         currentSoundFile.play();
-    } else if (currentSoundFile) {
+    } else {
         $currentlyPlayingCell.html(playButtonTemplate);
         $(this).html(playerBarPlayButton);
         currentSoundFile.pause();
